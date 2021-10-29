@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { apiKey } from '../App';
 import './SearchResults.css';
 
-export function SearchResults({ apiKey }) {
+export function SearchResults() {
   const [movieList, setMovieList] = useState([]);
 
-  useEffect(() => getMovies(setMovieList, apiKey), [apiKey]);
+  useEffect(() => getMovies(setMovieList), []);
   // console.log('movieList', movieList);
 
   return (
@@ -23,7 +24,7 @@ export function SearchResults({ apiKey }) {
   );
 }
 
-async function getMovies(setMovieList, apiKey) {
+async function getMovies(setMovieList) {
   try {
     const queriedMovies = await axios.get(
       `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`

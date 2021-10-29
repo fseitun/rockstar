@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './MovieDetails.css';
+import { apiKey } from '../App';
 
-export function MovieDetails({ apiKey }) {
+export function MovieDetails() {
   const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
   // console.log('movieId', movieId);
 
-  useEffect(() => getMovie(setMovie, apiKey, movieId), [apiKey, movieId]);
+  useEffect(() => getMovie(setMovie, movieId), [movieId]);
   // console.log('movie', movie);
 
   return (
@@ -31,7 +32,7 @@ export function MovieDetails({ apiKey }) {
   );
 }
 
-async function getMovie(setMovie, apiKey, movieId) {
+async function getMovie(setMovie, movieId) {
   try {
     const queriedMovie = await axios.get(
       `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`
