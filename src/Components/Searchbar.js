@@ -1,20 +1,10 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
-import { Outlet } from 'react-router-dom';
 import { apiKey } from '../App';
 import './Searchbar.css';
 
-export function Searchbar() {
-  return (
-    <>
-      <Search />
-      <Outlet />
-    </>
-  );
-}
-
-function Search() {
+export function Searchbar({ setSearchResults }) {
   const [searchTerm, setSearchTerm] = useState('');
   // console.log('searchTerm', searchTerm);
 
@@ -27,20 +17,15 @@ function Search() {
     { enabled: !!searchTerm }
   );
 
-  console.log('returnedSearchResults', returnedSearchResults);
+  // console.log('returnedSearchResults', returnedSearchResults);
+  useEffect(
+    () => setSearchResults(returnedSearchResults),
+    [returnedSearchResults, setSearchResults]
+  );
 
   const handleChange = event => {
     setSearchTerm(event.target.value);
   };
 
-  return (
-    <>
-      <input type="text" placeholder="Search" value={searchTerm} onChange={handleChange} />
-      <ul>
-        {returnedSearchResults?.map(movie => (
-          <li key={movie.id}>{movie.title}</li>
-        ))}
-      </ul>
-    </>
-  );
+  return <input type="text" placeholder="Search" value={searchTerm} onChange={handleChange} />;
 }

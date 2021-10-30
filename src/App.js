@@ -1,9 +1,9 @@
-import { Routes, Route } from 'react-router';
+import { Routes, Route, Navigate } from 'react-router';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { SearchResults } from './Components/SearchResults.js';
-import { Searchbar } from './Components/Searchbar.js';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import { MovieDetails } from './Components/MovieDetails.js';
 import './App.css';
+import { Browse } from './Components/Browse.js';
 
 const queryClient = new QueryClient();
 
@@ -13,13 +13,13 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Routes>
-        <Route path="/" element={<Searchbar />}>
-          <Route path="/discover" element={<SearchResults />} />
-          <Route path="movie-details" element={<MovieDetails />}>
-            <Route path=":movieId" element={1} />
-          </Route>
+        <Route path="/" element={<Navigate to="/browse" />} />
+        <Route path="/browse" element={<Browse />} />
+        <Route path="/movie-details" element={<MovieDetails />}>
+          <Route path=":movieId" element={1} />
         </Route>
       </Routes>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }
