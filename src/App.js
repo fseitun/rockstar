@@ -16,6 +16,7 @@ export default function App() {
         <Route path="/movie-details" element={<MovieDetails />}>
           <Route path=":movieId" element={1} />
         </Route>
+        <Route path="*" element={<Navigate to="/browse" />} />
       </Routes>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

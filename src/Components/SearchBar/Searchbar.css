@@ -18,3 +18,7 @@ li {
 .is-active {
   text-decoration: underline;
 }
+
+input + .stars {
+  font-size: 40px;
+}

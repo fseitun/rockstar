@@ -36,7 +36,7 @@ export function MovieDetails() {
   async function getMovie(setMovie, movieId) {
     try {
       const queriedMovie = await axios.get(
-        `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`
+        `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US&include_adult=false`
       );
       // console.log('queriedMovie', queriedMovie);
       setMovie(queriedMovie.data);

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { apiKey } from './Assets/apiKey';
-import { MovieGrid } from './MovieGrid';
+import { apiKey } from '../Assets/apiKey';
+import { MovieGrid } from '../MovieGrid/MovieGrid';
 
 export function PopularMovies({ SearchResults }) {
   const [movieList, setMovieList] = useState([]);
