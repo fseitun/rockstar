@@ -1,5 +1,4 @@
 import { MovieGrid } from './MovieGrid';
-import './PopularMovies.css';
 
 export function SearchResults({ searchResults }) {
   return (

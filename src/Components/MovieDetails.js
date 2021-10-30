@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './MovieDetails.css';
 import { apiKey } from '../App';
+import fallback from './not-found.png';
 
 export function MovieDetails() {
   const [movie, setMovie] = useState(null);
@@ -19,6 +20,7 @@ export function MovieDetails() {
           <img
             src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`}
             alt={movie?.Title}
+            onError={fallbackImage}
           />
         ) : null}
       </div>
@@ -30,17 +32,21 @@ export function MovieDetails() {
       </div>
     </div>
   );
-}
 
-async function getMovie(setMovie, movieId) {
-  try {
-    const queriedMovie = await axios.get(
-      `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`
-    );
-    // console.log('queriedMovie', queriedMovie);
-    setMovie(queriedMovie.data);
-    return queriedMovie.data;
-  } catch (error) {
-    console.error("Ooops, somthing didn't go as expected: ", error);
+  async function getMovie(setMovie, movieId) {
+    try {
+      const queriedMovie = await axios.get(
+        `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`
+      );
+      // console.log('queriedMovie', queriedMovie);
+      setMovie(queriedMovie.data);
+      return queriedMovie.data;
+    } catch (error) {
+      console.error("Ooops, somthing didn't go as expected: ", error);
+    }
+  }
+
+  function fallbackImage(event) {
+    event.target.src = fallback;
   }
 }

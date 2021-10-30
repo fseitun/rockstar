@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { apiKey } from '../App';
-import './PopularMovies.css';
 import { MovieGrid } from './MovieGrid';
 
 export function PopularMovies({ SearchResults }) {
