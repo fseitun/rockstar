@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './MovieDetails.css';
-import { apiKey } from '../App';
-import fallback from './not-found.png';
+import { apiKey } from '../Assets/apiKey';
+import fallback from '../Assets/not-found.png';
 
 export function MovieDetails() {
   const [movie, setMovie] = useState(null);

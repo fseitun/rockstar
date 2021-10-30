@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import fallback from './not-found.png';
+import fallback from './Assets/not-found.png';
 
 export function MovieGrid({ movies }) {
   return (

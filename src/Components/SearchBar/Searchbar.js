@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
-import { apiKey } from '../App';
+import { apiKey } from '../Assets/apiKey';
 import './Searchbar.css';
 
 export function Searchbar({ setSearchResults }) {

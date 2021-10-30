@@ -1,0 +1,1 @@
+export const apiKey = '92744beada41e5a4bd0cc80048ae44df'; //the sensible thing to do is to hide away the api key in a .env file, but since I want other people to be able to use this app, I'll leave it here (else i should have to provide a .env file to anyone who wants to use this app).

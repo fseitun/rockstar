@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Searchbar } from './Searchbar';
-import { PopularMovies } from './PopularMovies';
-import { SearchResults } from './SearchResults';
+import { Searchbar } from '../SearchBar/Searchbar';
+import { PopularMovies } from '../PopularMovies';
+import { SearchResults } from '../SearchResults';
 import './Browse.css';
 
 export function Browse() {
