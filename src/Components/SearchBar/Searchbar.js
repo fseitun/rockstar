@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import Rate from 'rc-rate';
 import { apiKey } from '../Assets/apiKey';
 import './Searchbar.css';
-import '../../../node_modules/rc-rate/assets/index.css';
+import 'rc-rate/assets/index.css';
 
 export function Searchbar({
   setSearchResults,
