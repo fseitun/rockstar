@@ -45,7 +45,7 @@ function Modal({ setShowDialog, showDialog, children }) {
   }
 
   return (
-    <Dialog className="modal" isOpen={showDialog} onDismiss={close}>
+    <Dialog isOpen={showDialog} onDismiss={close} ariaModal="true">
       {children}
     </Dialog>
   );
